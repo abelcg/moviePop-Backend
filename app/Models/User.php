@@ -43,6 +43,14 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The movies that belong to the user.
+     */
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class, 'favorite_movies')->as('favoritos');
+    }
+
      /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

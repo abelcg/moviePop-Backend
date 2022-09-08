@@ -118,5 +118,5 @@ class AuthController extends Controller
             'message' => 'Contenido de Admnin'
         ]);
     }
-
+    
 }

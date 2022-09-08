@@ -23,6 +23,7 @@ class MovieController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:70|min:5',
+            'img' => 'required|max:150',
             'language' => 'required|max:10',
             'genres' => 'required|max:10',
             'releaseDate' => 'required|max:10',
@@ -36,6 +37,7 @@ class MovieController extends Controller
         } else {
             $movie = new Movie();
             $movie->title = $request->input('title');
+            $movie->img = $request->input('img');
             $movie->language = $request->input('language');
             $movie->genres = $request->input('genres');
             $movie->releaseDate = $request->input('releaseDate');
@@ -69,6 +71,7 @@ class MovieController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:70|min:5',
+            'img' => 'required|max:150',
             'language' => 'required|max:10',
             'genres' => 'required|max:10',
             'releaseDate' => 'required|max:10',
@@ -83,6 +86,7 @@ class MovieController extends Controller
             $movie = Movie::find($id);
             if ($movie) {
                 $movie->title = $request->input('title');
+                $movie->img = $request->input('img');
                 $movie->language = $request->input('language');
                 $movie->genres = $request->input('genres');
                 $movie->releaseDate = $request->input('releaseDate');
