@@ -32,7 +32,7 @@ class MovieController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 422,
-                'validate_error' => $validator->messages(),
+                'message' => $validator->messages(),
             ]);
         } else {
             $movie = new Movie();
@@ -80,7 +80,7 @@ class MovieController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 422,
-                'validation_errors' => $validator->messages(),
+                'message' => $validator->messages(),
             ]);
         } else {
             $movie = Movie::find($id);

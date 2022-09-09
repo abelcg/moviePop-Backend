@@ -25,7 +25,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 422,
-                'validate_error' => $validator->messages(),
+                'message' => $validator->messages(),
             ]);
         }
         /* Eloquent creation of data */
@@ -51,7 +51,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 422,
-                'validate_error' => $validator->messages(),
+                'message' => $validator->messages(),
             ]);
         }
         $credentials = $request->only('email', 'password');
