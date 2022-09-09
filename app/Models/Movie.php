@@ -24,4 +24,11 @@ class Movie extends Model
     {
         return $this->belongsToMany(User::class, 'favorite_movies');
     }
+    /**
+     * The user's comments that belong to the movie.
+     */
+    public function usersComments()
+    {
+        return $this->belongsToMany(User::class, 'comment_rate')->as('comentarios');
+    }
 }

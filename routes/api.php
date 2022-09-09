@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CommentsRateController;
 use App\Http\Controllers\Api\FavoriteController;
 use App\Http\Controllers\Api\MovieController;
 use Illuminate\Http\Request;
@@ -31,4 +32,11 @@ Route::controller(FavoriteController::class)->group(function () {
     Route::get('/favorite/{id}', 'show');
     Route::delete('/favorite/{id}', 'delete');
     Route::delete('/favorite/{id}', 'destroy');
+});
+
+Route::controller(CommentsRateController::class)->group(function () {
+    Route::post('/comment/{id}', 'store');
+   /*  Route::get('/comment/{id}', 'show');
+    Route::delete('/comment/{id}', 'delete');
+    Route::delete('/comment/{id}', 'destroy'); */
 });

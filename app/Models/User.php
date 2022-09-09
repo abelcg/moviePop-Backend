@@ -44,19 +44,28 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
-     * The movies that belong to the user.
+     * The favorite movies that belong to the user.
      */
     public function movies()
     {
         return $this->belongsToMany(Movie::class, 'favorite_movies')->as('favoritos');
     }
 
-     /**
+    /**
+     * The movie's comments that belong to the user.
+     */
+    public function comments()
+    {
+        return $this->belongsToMany(Movie::class, 'comment_rate')->as('comentarios')->withPivot('comentario', 'calificacion');
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed
      */
-    public function getJWTIdentifier() {
+    public function getJWTIdentifier()
+    {
         return $this->getKey();
     }
     /**
@@ -64,7 +73,8 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return array
      */
-    public function getJWTCustomClaims() {
+    public function getJWTCustomClaims()
+    {
         return [];
-    }    
+    }
 }
