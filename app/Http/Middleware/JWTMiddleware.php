@@ -20,7 +20,7 @@ class JWTMiddleware
     {
         try {
             $isAdmin = $request->input('isAdmin');
-            if (true === $isAdmin) {
+            if (1 === $isAdmin) {
                 $token = JWTAuth::parseToken()->authenticate();
                 if (!$token) {
                     return response()->json(['message' => 'necesita de un token'], 500);
