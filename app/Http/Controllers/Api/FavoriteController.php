@@ -50,17 +50,4 @@ class FavoriteController extends Controller
             'message' => 'Película eliminada de favoritos correctamente',
         ]);
     }
-
-    /* borra toda la lista de películas favoritas del usuario */
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        $user->movies()->detach();
-
-        return response()->json([
-            'status' => 200,
-            'message' => 'Películas eliminadas de favoritos correctamente',
-        ]);
-    }
-
 }

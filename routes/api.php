@@ -30,5 +30,4 @@ Route::controller(FavoriteController::class)->group(function () {
     Route::post('/favorite/{id}', 'store');
     Route::get('/favorite/{id}', 'show');
     Route::delete('/favorite/{id}', 'delete');
-   // Route::delete('/favorite/{id}', 'destroy');
 });
