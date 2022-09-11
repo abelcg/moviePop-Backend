@@ -42,7 +42,7 @@ class FavoriteController extends Controller
     /* eliminar solo una película de favoritos */
     public function delete(Request $request, $id)
     {
-        $user = User::with('movies')->find($id);
+        $user = User::find($id);
         $user->movies()->detach($request->movieId);
 
         return response()->json([
