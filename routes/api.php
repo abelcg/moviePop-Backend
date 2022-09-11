@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login');
     Route::post('/register', 'register');
-    Route::put('/isAdmin/{id}', 'isAdmin');
+    Route::patch('/isAdmin/{id}', 'isAdmin');
     Route::get('/users', 'index');
 });
 
