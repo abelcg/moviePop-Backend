@@ -60,7 +60,8 @@ class FavoriteController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Películas eliminadas de favoritos correctamente'
+            'message' => 'Películas eliminadas de favoritos correctamente',
+            'user' => $user,
         ]);
     }
 
